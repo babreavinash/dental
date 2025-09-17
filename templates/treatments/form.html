@@ -1,0 +1,11 @@
+{% extends 'layout.html' %}
+{% block content %}
+<h3>New Treatment</h3>
+<form method="post">
+  {{ form.hidden_tag() }}
+  <div class="mb-3">{{ form.name.label }}{{ form.name(class_='form-control') }}</div>
+  <div class="mb-3">{{ form.description.label }}{{ form.description(class_='form-control', rows=4) }}</div>
+  <div class="mb-3">{{ form.price.label }}{{ form.price(class_='form-control') }}</div>
+  {{ form.submit(class_='btn btn-success') }}
+</form>
+{% endblock %}

@@ -1,0 +1,11 @@
+{% extends 'layout.html' %}
+{% block content %}
+<h3>{{ patient.name }}</h3>
+<p><strong>Email:</strong> {{ patient.email }} | <strong>Phone:</strong> {{ patient.phone }}</p>
+<h5>Treatments</h5>
+<ul>
+  {% for t in treatments %}<li>{{ t.date.date() if t.date else '' }} — {{ t.name }} — {{ t.price }}</li>{% endfor %}
+</ul>
+<h5>Invoices</h5>
+<ul>{% for inv in invoices %}<li>{{ inv.created_at.date() }} — {{ inv.amount }} — {{ inv.status }}</li>{% endfor %}</ul>
+{% endblock %}

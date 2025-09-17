@@ -1,0 +1,15 @@
+{% extends 'layout.html' %}
+{% block content %}
+<div class="d-flex justify-content-between align-items-center mb-3">
+  <h3>Patients</h3>
+  <a class="btn btn-primary" href="{{ url_for('patient_new') }}">New Patient</a>
+</div>
+<form class="mb-3"><input name="q" value="{{ q }}" class="form-control" placeholder="Search patients"></form>
+<table class="table table-striped"><thead><tr><th>#</th><th>Name</th><th>Email</th><th>Phone</th><th></th></tr></thead>
+<tbody>
+  {% for p in patients %}
+    <tr><td>{{ p.id }}</td><td><a href="{{ url_for('patient_view', pid=p.id) }}">{{ p.name }}</a></td><td>{{ p.email }}</td><td>{{ p.phone }}</td>
+    <td><a class="btn btn-sm btn-outline-secondary" href="{{ url_for('patient_edit', pid=p.id) }}">Edit</a></td></tr>
+  {% endfor %}
+</tbody></table>
+{% endblock %}

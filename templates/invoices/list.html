@@ -1,0 +1,6 @@
+{% extends 'layout.html' %}
+{% block content %}
+<div class="d-flex justify-content-between align-items-center mb-3"><h3>Invoices</h3><a class="btn btn-primary" href="{{ url_for('invoice_new') }}">New Invoice</a></div>
+<table class="table"><thead><tr><th>#</th><th>Patient</th><th>Amount</th><th>Status</th><th>Date</th></tr></thead>
+  <tbody>{% for inv in invoices %}<tr><td>{{ inv.id }}</td><td>{{ inv.patient_name }}</td><td>{{ inv.amount }}</td><td>{{ inv.status }}</td><td>{{ inv.created_at.date() }}</td></tr>{% endfor %}</tbody></table>
+{% endblock %}

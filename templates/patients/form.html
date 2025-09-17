@@ -1,0 +1,12 @@
+{% extends 'layout.html' %}
+{% block content %}
+<h3>{{ action }} Patient</h3>
+<form method="post">
+  {{ form.hidden_tag() }}
+  <div class="mb-3">{{ form.name.label }}{{ form.name(class_='form-control') }}</div>
+  <div class="mb-3">{{ form.email.label }}{{ form.email(class_='form-control') }}</div>
+  <div class="mb-3">{{ form.phone.label }}{{ form.phone(class_='form-control') }}</div>
+  <div class="mb-3">{{ form.notes.label }}{{ form.notes(class_='form-control', rows=4) }}</div>
+  {{ form.submit(class_='btn btn-success') }}
+</form>
+{% endblock %}

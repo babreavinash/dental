@@ -1,0 +1,3 @@
+body { padding-bottom: 60px; }
+.sidebar { min-height: 80vh; background:#f8f9fa; padding:15px; border-radius:6px; }
+.card { border-radius:10px; }

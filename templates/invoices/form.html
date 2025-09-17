@@ -1,0 +1,12 @@
+{% extends 'layout.html' %}
+{% block content %}
+<h3>New Invoice</h3>
+<form method="post">
+  {{ form.hidden_tag() }}
+  <div class="mb-3">{{ form.patient_name.label }}{{ form.patient_name(class_='form-control') }}</div>
+  <div class="mb-3">{{ form.amount.label }}{{ form.amount(class_='form-control') }}</div>
+  <div class="mb-3">{{ form.description.label }}{{ form.description(class_='form-control', rows=3) }}</div>
+  <div class="mb-3">{{ form.status.label }}{{ form.status(class_='form-select') }}</div>
+  {{ form.submit(class_='btn btn-success') }}
+</form>
+{% endblock %}

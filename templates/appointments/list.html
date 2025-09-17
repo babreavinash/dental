@@ -1,0 +1,15 @@
+{% extends 'layout.html' %}
+{% block content %}
+<div class="d-flex justify-content-between align-items-center mb-3">
+  <h3>Appointments</h3>
+  <a class="btn btn-primary" href="{{ url_for('appointment_new') }}">New Appointment</a>
+</div>
+<table class="table"><thead><tr><th>#</th><th>When</th><th>Patient</th><th>Service</th><th>Dentist</th><th></th></tr></thead>
+  <tbody>
+    {% for a in appointments %}
+      <tr><td>{{ a.id }}</td><td>{{ a.date_time }}</td><td>{{ a.patient.name }}</td><td>{{ a.service }}</td><td>{{ a.dentist }}</td>
+      <td><form method="post" action="{{ url_for('appointment_delete', aid=a.id) }}" style="display:inline"><button class="btn btn-sm btn-danger">Delete</button></form></td></tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% endblock %}
